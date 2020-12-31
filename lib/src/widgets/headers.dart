@@ -219,7 +219,6 @@ class _HeaderWavePainter extends CustomPainter {
     final path = Path();
 
     // Dibujar con el path y el lapiz
-
     path.lineTo(0, size.height / 5);
     path.quadraticBezierTo(size.width * 0.25, size.height * 0.30,
         size.width * 0.5, size.height * 0.25);
