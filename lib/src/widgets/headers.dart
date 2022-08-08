@@ -1,22 +1,28 @@
+// ignore_for_file: unnecessary_const
+
 import 'package:flutter/material.dart';
 
 class HeaderCuadrado extends StatelessWidget {
+  const HeaderCuadrado({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      color: Color(0xff615AAB),
+      color: const Color(0xff615AAB),
     );
   }
 }
 
 class HeaderBorderRedondeados extends StatelessWidget {
+  const HeaderBorderRedondeados({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
       height: 300,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.only(
+      decoration: const BoxDecoration(
+        borderRadius: const BorderRadius.only(
             bottomLeft: Radius.circular(70), bottomRight: Radius.circular(70)),
         color: Color(0xff615AAB),
       ),
@@ -25,6 +31,8 @@ class HeaderBorderRedondeados extends StatelessWidget {
 }
 
 class HeaderDiagonal extends StatelessWidget {
+  const HeaderDiagonal({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -43,7 +51,7 @@ class _HeaderDiagonalPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final lapiz = Paint();
     // Propieades
-    lapiz.color = Color(0xff615AAB);
+    lapiz.color = const Color(0xff615AAB);
     lapiz.style = PaintingStyle.fill; // .fill .stroke
     lapiz.strokeWidth = 10;
 
@@ -67,6 +75,8 @@ class _HeaderDiagonalPainter extends CustomPainter {
 }
 
 class HeaderTriangular extends StatelessWidget {
+  const HeaderTriangular({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -85,7 +95,7 @@ class _HeaderTriangularPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final lapiz = Paint();
     // Propieades
-    lapiz.color = Color(0xff615AAB);
+    lapiz.color = const Color(0xff615AAB);
     lapiz.style = PaintingStyle.fill; // .fill .stroke
     lapiz.strokeWidth = 10;
 
@@ -108,6 +118,8 @@ class _HeaderTriangularPainter extends CustomPainter {
 }
 
 class HeaderPico extends StatelessWidget {
+  const HeaderPico({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -126,7 +138,7 @@ class _HeaderPicoPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final lapiz = Paint();
     // Propieades
-    lapiz.color = Color(0xff615AAB);
+    lapiz.color = const Color(0xff615AAB);
     lapiz.style = PaintingStyle.fill; // .fill .stroke
     lapiz.strokeWidth = 10;
 
@@ -134,9 +146,9 @@ class _HeaderPicoPainter extends CustomPainter {
 
     // Dibujar con el path y el lapiz
 
-    path.lineTo(0, size.height / 4);
-    path.lineTo(size.width / 2, size.height / 3);
-    path.lineTo(size.width, size.height / 4);
+    path.lineTo(0, size.height * 0.25);
+    path.lineTo(size.width * 0.5, size.height * 0.3);
+    path.lineTo(size.width, size.height * 0.25);
     path.lineTo(size.width, 0);
     //path.lineTo(size.width, 0);
     //path.lineTo(0, size.height);
@@ -152,6 +164,8 @@ class _HeaderPicoPainter extends CustomPainter {
 }
 
 class HeaderCurvo extends StatelessWidget {
+  const HeaderCurvo({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -170,7 +184,7 @@ class _HeaderCurvoPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final lapiz = Paint();
     // Propieades
-    lapiz.color = Color(0xff615AAB);
+    lapiz.color = const Color(0xff615AAB);
     lapiz.style = PaintingStyle.fill; // .fill .stroke
     lapiz.strokeWidth = 10;
 
@@ -178,9 +192,9 @@ class _HeaderCurvoPainter extends CustomPainter {
 
     // Dibujar con el path y el lapiz
 
-    path.lineTo(0, size.height / 5);
+    path.lineTo(0, size.height * 0.20);
     path.quadraticBezierTo(
-        size.width / 2, size.height / 2.5, size.width, size.height / 5);
+        size.width * 0.5, size.height * 0.40, size.width, size.height * 0.20);
     path.lineTo(size.width, 0);
     //path.lineTo(size.width, size.height / 4);
 
@@ -194,6 +208,8 @@ class _HeaderCurvoPainter extends CustomPainter {
 }
 
 class HeaderWave extends StatelessWidget {
+  const HeaderWave({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -212,14 +228,14 @@ class _HeaderWavePainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     final lapiz = Paint();
     // Propieades
-    lapiz.color = Color(0xff615AAB);
+    lapiz.color = const Color(0xff615AAB);
     lapiz.style = PaintingStyle.fill; // .fill .stroke
     lapiz.strokeWidth = 10;
 
     final path = Path();
 
     // Dibujar con el path y el lapiz
-    path.lineTo(0, size.height / 5);
+    path.lineTo(0, size.height * 0.20);
     path.quadraticBezierTo(size.width * 0.25, size.height * 0.30,
         size.width * 0.5, size.height * 0.25);
     path.quadraticBezierTo(
@@ -234,7 +250,53 @@ class _HeaderWavePainter extends CustomPainter {
   }
 }
 
+class HeaderInvWave extends StatelessWidget {
+  const HeaderInvWave({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      height: double.infinity,
+      width: double.infinity,
+      //color: Color(0xff615AAB),
+      child: CustomPaint(
+        painter: _HeaderWaveInvPainter(),
+      ),
+    );
+  }
+}
+
+class _HeaderWaveInvPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final lapiz = Paint();
+    // Propieades
+    lapiz.color = const Color(0xff615AAB);
+    lapiz.style = PaintingStyle.fill; // .fill .stroke
+    lapiz.strokeWidth = 10;
+
+    final path = Path();
+
+    // Dibujar con el path y el lapiz
+    path.moveTo(0, size.height);
+    path.lineTo(0, size.height * 0.70);
+    path.quadraticBezierTo(size.width * 0.25, size.height * 0.80,
+        size.width * 0.5, size.height * 0.75);
+    path.quadraticBezierTo(
+        size.width * 0.75, size.height * 0.70, size.width, size.height * 0.75);
+    path.lineTo(size.width, size.height);
+    canvas.drawPath(path, lapiz);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return true;
+  }
+}
+
 class HeaderGradiente extends StatelessWidget {
+  const HeaderGradiente({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -252,8 +314,8 @@ class _HeaderGradientePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final Rect rect =
-        new Rect.fromCircle(center: Offset(0.0, 55.0), radius: 180);
-    final Gradient gradient = new LinearGradient(
+        Rect.fromCircle(center: const Offset(0.0, 55.0), radius: 180);
+    const Gradient gradient = const LinearGradient(
         begin: Alignment.topCenter,
         end: Alignment.bottomCenter,
         colors: <Color>[
@@ -277,7 +339,7 @@ class _HeaderGradientePainter extends CustomPainter {
 
     // Dibujar con el path y el lapiz
 
-    path.lineTo(0, size.height / 5);
+    path.lineTo(0, size.height * 0.20);
     path.quadraticBezierTo(size.width * 0.25, size.height * 0.30,
         size.width * 0.5, size.height * 0.25);
     path.quadraticBezierTo(
