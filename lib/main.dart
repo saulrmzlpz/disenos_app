@@ -1,5 +1,6 @@
 import 'package:disenos_app/src/challenges/animated_square_screen.dart';
 import 'package:disenos_app/src/pages/anims_screen.dart';
+import 'package:disenos_app/src/pages/circular_progress_screen.dart';
 import 'package:disenos_app/src/pages/headers_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         //visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const AnimatedSquareScreen(),
+      home: const CircularProgressScreen(),
     );
   }
 }
