@@ -80,18 +80,19 @@ class _MyRadialProgress extends CustomPainter {
     final Offset center = Offset(size.width * 0.5, size.height * 0.5);
     final double radius = min(size.width * 0.5, size.height * 0.5);
     canvas.drawCircle(center, radius, paint);
+    if (percent > 0) {
+      // arco
+      final paintArc = Paint()
+        ..strokeWidth = 10
+        ..color = Colors.pink
+        ..style = PaintingStyle.stroke;
 
-    // arco
-    final paintArc = Paint()
-      ..strokeWidth = 10
-      ..color = Colors.pink
-      ..style = PaintingStyle.stroke;
+      // Parte que se deberá ir llenando
+      double arcAngle = 2 * pi * (percent / 100);
 
-    // Parte que se deberá ir llenando
-    double arcAngle = 2 * pi * (percent / 100);
-
-    canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
-        arcAngle, false, paintArc);
+      canvas.drawArc(Rect.fromCircle(center: center, radius: radius), -pi / 2,
+          arcAngle, false, paintArc);
+    }
   }
 
   @override

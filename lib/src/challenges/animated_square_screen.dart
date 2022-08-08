@@ -5,7 +5,7 @@ class AnimatedSquareScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: Center(
         child: _AnimatedSquare(),
       ),
@@ -34,21 +34,21 @@ class _AnimatedSquareState extends State<_AnimatedSquare>
   @override
   void initState() {
     controller = AnimationController(
-        vsync: this, duration: Duration(milliseconds: 4000));
+        vsync: this, duration: const Duration(milliseconds: 4000));
 
     moveSquareRight = Tween(begin: 0.0, end: 100.0).animate(CurvedAnimation(
         parent: controller!,
-        curve: Interval(0.0, 0.25, curve: Curves.bounceOut)));
+        curve: const Interval(0.0, 0.25, curve: Curves.bounceOut)));
 
     moveSquareUp = Tween(begin: 0.0, end: 100.0).animate(CurvedAnimation(
         parent: controller!,
-        curve: Interval(0.25, 0.50, curve: Curves.bounceOut)));
+        curve: const Interval(0.25, 0.50, curve: Curves.bounceOut)));
     moveSquareLeft = Tween(begin: 0.0, end: 100.0).animate(CurvedAnimation(
         parent: controller!,
-        curve: Interval(0.50, 0.75, curve: Curves.bounceOut)));
+        curve: const Interval(0.50, 0.75, curve: Curves.bounceOut)));
     moveSquareDown = Tween(begin: 0.0, end: 100.0).animate(CurvedAnimation(
         parent: controller!,
-        curve: Interval(0.75, 1.0, curve: Curves.bounceOut)));
+        curve: const Interval(0.75, 1.0, curve: Curves.bounceOut)));
 
     controller!.addListener(() {
       print(controller!.status);
@@ -93,7 +93,7 @@ class _Rectangulo extends StatelessWidget {
     return Container(
       width: 70,
       height: 70,
-      decoration: BoxDecoration(color: Colors.blue),
+      decoration: const BoxDecoration(color: Colors.blue),
     );
   }
 }
