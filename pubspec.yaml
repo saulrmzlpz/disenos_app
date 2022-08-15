@@ -27,11 +27,13 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  animate_do: ^2.1.0
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
   flutter_staggered_grid_view: ^0.6.2
   flutter_svg: ^1.1.3
+  font_awesome_flutter: ^10.1.0
   provider: ^6.0.3
 
 dev_dependencies:
