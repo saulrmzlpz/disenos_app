@@ -1,6 +1,4 @@
-import 'package:disenos_app/src/pages/emergency_screen.dart';
-import 'package:disenos_app/src/pages/pinteres_screen.dart';
-import 'package:disenos_app/src/pages/slideshow_screen.dart';
+import 'package:disenos_app/src/pages/sliver_list_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -23,7 +21,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         //visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const EmergencyScreen(),
+      home: const SliverListScreen(),
     );
   }
 }
