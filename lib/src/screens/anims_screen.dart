@@ -1,6 +1,9 @@
+import 'package:disenos_app/src/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 import 'dart:math' as math;
+
+import 'package:provider/provider.dart';
 
 class AnimsScreen extends StatelessWidget {
   const AnimsScreen({Key? key}) : super(key: key);
@@ -24,8 +27,7 @@ class _CuadradoAnimado extends StatefulWidget {
   State<_CuadradoAnimado> createState() => _CuadradoAnimadoState();
 }
 
-class _CuadradoAnimadoState extends State<_CuadradoAnimado>
-    with SingleTickerProviderStateMixin {
+class _CuadradoAnimadoState extends State<_CuadradoAnimado> with SingleTickerProviderStateMixin {
   AnimationController? controller;
   Animation<double>? rotation;
   Animation<double>? opacity;
@@ -35,25 +37,18 @@ class _CuadradoAnimadoState extends State<_CuadradoAnimado>
 
   @override
   void initState() {
-    controller = AnimationController(
-        vsync: this, duration: const Duration(milliseconds: 4000));
+    controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 4000));
 
-    rotation = Tween(begin: 0.0, end: 2 * math.pi)
-        .animate(CurvedAnimation(parent: controller!, curve: Curves.easeOut));
+    rotation = Tween(begin: 0.0, end: 2 * math.pi).animate(CurvedAnimation(parent: controller!, curve: Curves.easeOut));
 
     //El intervalo está basado en el porcentaje del tiempo definido en el controller
-    opacity = Tween(begin: 0.1, end: 1.0).animate(CurvedAnimation(
-        parent: controller!, curve: Interval(0, 0.25, curve: Curves.easeOut)));
+    opacity = Tween(begin: 0.1, end: 1.0).animate(CurvedAnimation(parent: controller!, curve: Interval(0, 0.25, curve: Curves.easeOut)));
 
-    opacityOut = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(
-        parent: controller!,
-        curve: Interval(0.75, 1.0, curve: Curves.easeOut)));
+    opacityOut = Tween(begin: 1.0, end: 0.0).animate(CurvedAnimation(parent: controller!, curve: Interval(0.75, 1.0, curve: Curves.easeOut)));
 
-    moveToRight = Tween(begin: 0.0, end: 200.0)
-        .animate(CurvedAnimation(parent: controller!, curve: Curves.easeOut));
+    moveToRight = Tween(begin: 0.0, end: 200.0).animate(CurvedAnimation(parent: controller!, curve: Curves.easeOut));
 
-    scale = Tween(begin: 0.0, end: 2.0)
-        .animate(CurvedAnimation(parent: controller!, curve: Curves.easeOut));
+    scale = Tween(begin: 0.0, end: 2.0).animate(CurvedAnimation(parent: controller!, curve: Curves.easeOut));
 
     controller!.addListener(() {
       print(controller!.status);
@@ -103,10 +98,11 @@ class _CuadradoAnimadoState extends State<_CuadradoAnimado>
 class _Rectangulo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final appTheme = Provider.of<AppTheme>(context);
     return Container(
       width: 70,
       height: 70,
-      decoration: BoxDecoration(color: Colors.blue),
+      decoration: BoxDecoration(color: appTheme.currentTheme!.colorScheme.secondary),
     );
   }
 }

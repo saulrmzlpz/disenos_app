@@ -1,5 +1,7 @@
+import 'package:disenos_app/src/themes/app_theme.dart';
 import 'package:disenos_app/src/widgets/radial_progress.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CircularGraphicsScreen extends StatefulWidget {
   const CircularGraphicsScreen({Key? key}) : super(key: key);
@@ -13,6 +15,7 @@ class _CircularGraphicsScreenState extends State<CircularGraphicsScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final currentTheme = Provider.of<AppTheme>(context).currentTheme;
     return Scaffold(
       body: Center(
         child: Column(
@@ -28,6 +31,7 @@ class _CircularGraphicsScreenState extends State<CircularGraphicsScreen> {
                     child: RadialProgress(
                       percent: percent,
                       progressColor: Colors.cyan,
+                      backgroundColor: currentTheme!.textTheme.caption!.color,
                       progressRounded: true,
                     )),
                 SizedBox(
@@ -36,6 +40,7 @@ class _CircularGraphicsScreenState extends State<CircularGraphicsScreen> {
                     child: RadialProgress(
                       percent: percent,
                       progressColor: Colors.pink,
+                      backgroundColor: currentTheme.textTheme.caption!.color,
                       progressRounded: true,
                     )),
               ],
@@ -49,9 +54,9 @@ class _CircularGraphicsScreenState extends State<CircularGraphicsScreen> {
                     child: RadialProgress(
                       percent: percent,
                       progressColor: Colors.green,
+                      backgroundColor: currentTheme.textTheme.caption!.color,
                       progressRounded: true,
-                      progressGradientColor:
-                          LinearGradient(colors: [Colors.red, Colors.black]),
+                      progressGradientColor: LinearGradient(colors: [Colors.red, Colors.black]),
                     )),
                 SizedBox(
                     width: 150,
@@ -59,6 +64,7 @@ class _CircularGraphicsScreenState extends State<CircularGraphicsScreen> {
                     child: RadialProgress(
                       percent: percent,
                       progressColor: Colors.orange,
+                      backgroundColor: currentTheme.textTheme.caption!.color,
                       progressRounded: true,
                     )),
               ],

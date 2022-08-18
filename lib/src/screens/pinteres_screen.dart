@@ -1,3 +1,4 @@
+import 'package:disenos_app/src/themes/app_theme.dart';
 import 'package:disenos_app/src/widgets/pinterest_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -30,30 +31,36 @@ class _PinterestMenu extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final visible = Provider.of<_MenuModel>(context).visible;
+    final currentTheme = Provider.of<AppTheme>(context).currentTheme;
 
     return SafeArea(
-      child: PinterestMenu(visible: visible, items: [
-        PinterestButton(
-            onPressed: () {
-              print('Icon 1');
-            },
-            iconData: Icons.pie_chart),
-        PinterestButton(
-            onPressed: () {
-              print('Icon 2');
-            },
-            iconData: Icons.search),
-        PinterestButton(
-            onPressed: () {
-              print('Icon 3');
-            },
-            iconData: Icons.notifications),
-        PinterestButton(
-            onPressed: () {
-              print('Icon 4');
-            },
-            iconData: Icons.account_circle),
-      ]),
+      child: PinterestMenu(
+        visible: visible,
+        backgroundColor: currentTheme!.scaffoldBackgroundColor,
+        activeColor: currentTheme.colorScheme.secondary,
+        items: [
+          PinterestButton(
+              onPressed: () {
+                print('Icon 1');
+              },
+              iconData: Icons.pie_chart),
+          PinterestButton(
+              onPressed: () {
+                print('Icon 2');
+              },
+              iconData: Icons.search),
+          PinterestButton(
+              onPressed: () {
+                print('Icon 3');
+              },
+              iconData: Icons.notifications),
+          PinterestButton(
+              onPressed: () {
+                print('Icon 4');
+              },
+              iconData: Icons.account_circle),
+        ],
+      ),
     );
   }
 }
@@ -106,12 +113,14 @@ class _PinterestItem extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
+    final currentTheme = Provider.of<AppTheme>(context).currentTheme;
+
     return StaggeredGridTile.count(
       crossAxisCellCount: 2,
       mainAxisCellCount: index.isEven ? 2 : 3,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.blue,
+          color: currentTheme!.colorScheme.secondary,
           borderRadius: BorderRadius.circular(30),
         ),
         margin: const EdgeInsets.all(5),
